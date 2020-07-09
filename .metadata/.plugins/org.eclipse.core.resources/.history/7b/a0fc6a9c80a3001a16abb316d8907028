@@ -1,0 +1,3 @@
+  <sql:setDataSource var="db" driver="com.mysql.jdbc.Driver"  
+     url="jdbc:mysql://localhost/bikers_portal_db"  
+     user="root"  password=""/>

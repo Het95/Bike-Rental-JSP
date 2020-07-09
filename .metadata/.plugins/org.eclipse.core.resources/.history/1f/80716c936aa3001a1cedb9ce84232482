@@ -1,0 +1,105 @@
+<header>
+  <div class="default-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-md-2">
+          <div class="logo"> <a href="index.jsp"><img src="assets/images/logg2.png" alt="image"/></a> </div>
+        </div>
+        <div class="col-sm-9 col-md-10">
+          <div class="header_info">
+            <div class="header_widgets">
+              <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
+              <p class="uppercase_text">For Support Mail us : </p>
+              <a href="mailto:info@example.com">bikerportal@portal.com</a> </div>
+            <div class="header_widgets">
+              <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
+              <p class="uppercase_text">Service Helpline Call Us: </p>
+              <a href="tel:61-1234-5678-09">+91-99876543210</a> </div>
+            <div class="social-follow">
+              <ul>
+                <li><a href="http://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.twitter.com"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.linkedin.com"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.google.com"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+            <c:choose>
+            	<c:when test="${empty sessionScope.login}">
+            		<div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
+            	</c:when>
+            	<c:otherwise>
+           			<div>Welcome To Bike rental portal</div>	
+            	</c:otherwise>
+            </c:choose>
+          </div>
+		</div>
+	  </div>
+	</div>
+  </div>    
+             <nav id="navigation_bar" class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button id="menu_slide" data-target="#navigation" aria-expanded="false" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      </div>
+      <div class="header_wrap">
+        <div class="user_login">
+          <ul>
+            <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>
+            
+            <sql:query dataSource = "${db}" var = "result">
+        	    SELECT * from tblusers where FullName = '<c:out value="${sessioScope.login}"/>'  ;
+     	    </sql:query>
+ 
+	         <c:forEach var = "row" items = "${result.rows}">
+	                <c:out value = "${row.FullName}"/>
+	         </c:forEach>
+	         <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu">
+              	<c:choose>
+            		<c:when test="${empty sessionScope.login}">
+            			<li><a href="#loginform"  data-toggle="modal" data-dismiss="modal">Profile Settings</a></li>
+              			<li><a href="#loginform"  data-toggle="modal" data-dismiss="modal">Update Password</a></li>
+            			<li><a href="#loginform"  data-toggle="modal" data-dismiss="modal">My Booking</a></li>
+            			<li><a href="#loginform"  data-toggle="modal" data-dismiss="modal">Post a Testimonial</a></li>
+          				<li><a href="#loginform"  data-toggle="modal" data-dismiss="modal">My Testimonial</a></li>
+            			<li><a href="#loginform"  data-toggle="modal" data-dismiss="modal">Sign Out</a></li>
+            		</c:when>
+            		<c:otherwise>
+           				<li><a href="profile.jsp">Profile Settings</a></li>
+              			<li><a href="update-password.jsp">Update Password</a></li>
+            			<li><a href="my-booking.jsp">My Booking</a></li>
+            			<li><a href="post-testimonial.jsp">Post a Testimonial</a></li>
+          				<li><a href="my-testimonials.jsp">My Testimonial</a></li>
+            			<li><a href="logout.jsp">Sign Out</a></li>	
+            		</c:otherwise>
+            	</c:choose>
+            	</ul>
+            </li>
+          </ul>
+        </div>
+        <div class="header_search">
+          <div id="search_toggle"><i class="fa fa-search" aria-hidden="true"></i></div>
+          <form action="#" method="get" id="header-search-form">
+            <input type="text" placeholder="Search..." class="form-control">
+            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav">
+          <li><a href="index.jsp">Home</a>    </li>
+
+          <li><a href="page.jsp?type=aboutus">About Us</a></li>
+          <li><a href="bike-listing.jsp">Bike Listing</a>
+          <li><a href="page.jsp?type=faqs">FAQs</a></li>
+          <li><a href="contact-us.jsp">Contact Us</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation end -->
+            	
+		
+</header>	

@@ -1,0 +1,58 @@
+<header>
+  <div class="default-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-md-2">
+          <div class="logo"> <a href="index.jsp"><img src="assets/images/logg2.png" alt="image"/></a> </div>
+        </div>
+        <div class="col-sm-9 col-md-10">
+          <div class="header_info">
+            <div class="header_widgets">
+              <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
+              <p class="uppercase_text">For Support Mail us : </p>
+              <a href="mailto:info@example.com">bikerportal@portal.com</a> </div>
+            <div class="header_widgets">
+              <div class="circle_icon"> <i class="fa fa-phone" aria-hidden="true"></i> </div>
+              <p class="uppercase_text">Service Helpline Call Us: </p>
+              <a href="tel:61-1234-5678-09">+91-99876543210</a> </div>
+            <div class="social-follow">
+              <ul>
+                <li><a href="http://www.facebook.com"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.twitter.com"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.linkedin.com"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.google.com"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+            <c:choose>
+            	<c:when test="${empty sessionScope.login}">
+            		<div class="login_btn"> <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login / Register</a> </div>
+            	</c:when>
+            	<c:otherwise>
+           			<div>Welcome To Bike rental portal</div>	
+            	</c:otherwise>
+            </c:choose>
+            
+            
+            
+            <sql:query dataSource = "${db}" var = "result">
+        	    SELECT * from tblusers where FullName = '<c:out value="Tom k"/>'  ;
+     	    </sql:query>
+ 
+	      <table border = "1" width = "100%">
+	         <tr>
+	            <th>First Name</th>
+	         </tr>
+	         
+	         <c:forEach var = "row" items = "${result.rows}">
+	            <tr>
+	               <td> <c:out value = "${row.FullName}"/></td>
+	               </tr>
+	         </c:forEach>
+	      </table>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</header>	

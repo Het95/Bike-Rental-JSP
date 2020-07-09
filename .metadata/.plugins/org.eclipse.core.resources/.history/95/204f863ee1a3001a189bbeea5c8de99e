@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+       <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Bike Rental Portal | Admin Dashboard</title>
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- Sandstone Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Bootstrap Datatables -->
+	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+	<!-- Bootstrap social button library -->
+	<link rel="stylesheet" href="css/bootstrap-social.css">
+	<!-- Bootstrap select -->
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<!-- Bootstrap file input -->
+	<link rel="stylesheet" href="css/fileinput.min.css">
+	<!-- Awesome Bootstrap checkbox -->
+	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+	<!-- Admin Stye -->
+	<link rel="stylesheet" href="css/style.css"></head>
+<body>
+
+	<div class="brand clearfix">
+	<a href="dashboard.jsp" style="font-size: 20px;">Bike Rental Portal | Admin Panel</a>  
+		<span class="menu-btn"><i class="fa fa-bars"></i></span>
+		<ul class="ts-profile-nav">
+
+			<li class="ts-account">
+				<a href="#"><img src="img/ts-avatar.jpg" class="ts-avatar hidden-side" alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
+				<ul>
+					<li><a href="change-password.jsp">Change Password</a></li>
+					<li><a href="logout.jsp">Logout</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<nav  class="navbar navbar-default">
+    <div class="container">
+    	<div class="collapse navbar-collapse" id="navigation">
+        <ul class="nav navbar-nav">
+          <li><a href="dashboard.jsp">Add Bike</a>    </li>
+
+          <li><a href="requests.jsp">Rent Requests</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    </nav>
+	
+	
+	
+</body>
+</html>
